@@ -1,15 +1,15 @@
-# Simple PHP Refactoring Test
+# Simple Node Refactoring Test with Nest JS
 
 The main ```src.survey.controller.ts``` file includes a controller that mimics a full-fat Laravel controller (but without any external framework dependencies). It should run in any php 8+ environment.
 
 
 The first step is to install the project via `npm install`. This should install a skeleton Nest Js 11 project that requires Node 20+, but has no other dependencies such as databases. The default port is 3000, but you can override this in your local `.env` file.
 
-The controller's ```renderResults()``` method is called at the bottom of the file so it will run at the command line via ```npm run start:dev``` with JSON output.
+The controller's ```renderResults()``` method is called when you navigate to `/survey/results` (e.g. http://localhost:3000/survey/results);
 
 All data sets and variable values are hard-coded for testing purposes. In production, these would come from request parameters and database queries.
 
-A user, Jane Blogger, identified by $userId, is answering questions in a survey identified by $surveyId. So far, she has answered 3 questions, 1 in the personal category and 2 in the career category. The current survey has 3 personal questions and 9 career questions. Each question has one answer.
+A user, Jane Blogger, identified by $userId, is answering questions in a survey identified by `surveyId`. So far, she has answered 3 questions, 1 in the personal category and 2 in the career category. The current survey has 3 personal questions and 9 career questions. Each question has one answer.
 
 This output should show status (success, invalid), the percentage completed by category key and the answers given so far. 
 
