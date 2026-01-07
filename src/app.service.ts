@@ -1,5 +1,9 @@
 import { Injectable } from '@nestjs/common';
-import { AppInfo } from './app.interface';
+
+export interface AppInfo {
+  message: string;
+  uri: string;
+}
 
 @Injectable()
 export class AppService {

@@ -1,6 +1,6 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { AppController } from './app.controller';
-import { AppService } from './app.service';
+import { AppService, AppInfo } from './app.service';
 
 describe('AppController', () => {
   let appController: AppController;
@@ -15,8 +15,12 @@ describe('AppController', () => {
   });
 
   describe('root', () => {
-    it('should return "Hello World!"', () => {
-      expect(appController.getHello()).toBe('Hello World!');
+    it('should return the correct AppInfo object', () => {
+      const expected: AppInfo = {
+        message: 'Welcome to the Survey API',
+        uri: '/survey/results',
+      };
+      expect(appController.getHello()).toEqual(expected);
     });
   });
 });
