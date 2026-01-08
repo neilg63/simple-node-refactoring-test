@@ -1,22 +1,22 @@
 # Simple Node Refactoring Test with Nest JS
 
-The first step is to install the project via `npm install`. This should install a skeleton Nest Js 11 project that requires Node 20+, but has no other dependencies such as databases. The default port is 3000, but you can override this in your local `.env` file.
+The first step is to install the project via `npm install`. This should install a skeleton *NestJS* 11 project that requires Node 20+, but has no other dependencies such as databases. The default port is 3000, but you can override this in your local `.env` file or within `main.ts`.
  
-The controller in `src/survey.controller.ts` has method, `renderResults()`, which is called when you navigate to `/survey/results` (e.g. http://localhost:3000/survey/results). This calls `src/survey.service.ts` and the related `completion.row.ts` model files. In normal Nest projects, these would be organised into separate modules. 
+The controller in `src/survey.controller.ts` has one endpoint method, `renderResults()`, which is called when you navigate to `/survey/results` (e.g. http://localhost:3000/survey/results). This calls `survey.result.ts` and the related `answer.row.ts` and `completion.row.ts` model files. In normal Nest projects, these would be organised into separate modules. 
 
 All data sets and variable values are hard-coded for testing purposes. In production, these would come from request parameters and database queries.
 
-A user, Jane Blogger, identified by $userId, is answering questions in a survey identified by `surveyId`. So far, she has answered 3 questions, 1 in the personal category and 2 in the career category. The current survey has 3 personal questions and 9 career questions. Each question has one answer.
+A user, Jane Blogger, identified by `userId`, is answering questions in a survey identified by `surveyId`. So far, she has answered 3 questions, 1 in the personal category and 2 in the career category. The current survey has 3 personal questions and 9 career questions. Each question has one answer.
 
 This output should show status (success, invalid), the answers given so far and the percentage completed by category key.
 
-The mock data is assembled in `survey.result.ts` with only two categories, but in future there may be many more categories and output should track progress as a  % within each category, including those the candidate has not begun yet.
+The mock data is assembled in `survey.result.ts` with only two categories, but in future there may be many more categories and the output should track progress as a  % within each category, including those the candidate has not begun yet.
 
 The API endpoint `/survey/results` would be called by a frontend application with a payload containing the `surveyId`. The `userId` may come from a JWT token; However, we have hardcoded these values for temporary testing purposes.
 
 Your task is only to:
 
-1. Implement the calcPercentage() method in the `CompletionRow` service class (src/comnpletion.row.ts)
+1. Implement the calcPercentage() method in the `CompletionRow` service class (`completion.row.ts`)
 2. Run `npm run test` to see if the second test passes.
 3. Refactor the code in `renderResults()` (`survey.controller.ts`) with a SurveyService class (`survey.service.ts`) returning a `Details` object (currently defined as an interface in completions.row.ts)  with improvements to better support more question categories in future. However, the output within `progress` should still be in the format:
 ```json
