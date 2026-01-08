@@ -4,7 +4,7 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { SurveyController } from './survey.controller';
 import { Details } from './completion.row';
-import { createRequest, createResponse } from 'node-mocks-http';
+import { createResponse } from 'node-mocks-http';
 
 describe('SurveyController', () => {
   let controller: SurveyController;
@@ -18,18 +18,16 @@ describe('SurveyController', () => {
   });
 
   it('should return the correct survey results', () => {
-    const req = createRequest();
+
     const res = createResponse();
 
-    controller.renderResults(res, req);
+    controller.renderResults(res);
 
     // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
     const jsonResponse = res._getJSONData() as Details;
 
     // 1. There are at least 2 completion categories as keys of "completions".
-    expect(Object.keys(jsonResponse.completions).length).toBeGreaterThanOrEqual(
-      2,
-    );
+    expect(Object.keys(jsonResponse.completions).length).toBeGreaterThanOrEqual(2);
 
     // 2. Both have percentages > 0.
     for (const key in jsonResponse.completions) {

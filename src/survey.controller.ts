@@ -6,9 +6,7 @@ import { CompletionRow, Details } from './completion.row';
 @Controller('survey')
 export class SurveyController {
   @Get('results')
-  renderResults(@Res()
-    res: express.Response,
-  ) {
+  renderResults(@Res() res: express.Response) {
     const surveyId = 4; //. hardcoded for demo purposes would come from the URL Path
     const userId = 209; //. hardcoded for demo purposes. would come from auth context
     const answers = SurveyResult.getAnswers(surveyId, userId);
@@ -17,8 +15,7 @@ export class SurveyController {
     const statusKey = completions.length === 2 ? 'success' : 'invalid';
 
     if (completions.length < 2) {
-      res.status(404).json({ status: statusKey, surveyId, answers });
-      return;
+      return res.status(404).json({ status: statusKey, surveyId, answers });
     }
 
     const details: Details = {
@@ -32,6 +29,6 @@ export class SurveyController {
       details.completions[completion.type] = completion;
     });
 
-    res.status(200).json(details);
+    return res.status(200).json(details);
   }
 }
