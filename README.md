@@ -17,7 +17,7 @@ The API endpoint `/survey/results` would be called by a frontend application wit
 
 Your task is only to:
 
-1. Implement the calcPercentage() method in the `CompletionRow` service class (`completion.row.ts`)
+1. Implement the `calcPercentage()` method in the `CompletionRow` service class (`completion.row.ts`)
 2. Run `npm run test` to see if the second test passes.
 3. Refactor the code in `renderResults()` (`survey.controller.ts`) with a SurveyService class (`survey.service.ts`) returning a `Details` object (currently defined as an interface in completions.row.ts)  with improvements to better support more question categories in future. However, the output within `progress` should still be in the format:
 ```json
