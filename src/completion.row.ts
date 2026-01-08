@@ -11,7 +11,7 @@ export class CompletionRow {
   To be implemented
   */
   calcPercentage(): number {
-    return Math.round((this.count / this.total) * 10000) / 100;
+    return -1;
   }
 }
 
