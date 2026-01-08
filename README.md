@@ -8,16 +8,24 @@ All data sets and variable values are hard-coded for testing purposes. In produc
 
 A user, Jane Blogger, identified by $userId, is answering questions in a survey identified by `surveyId`. So far, she has answered 3 questions, 1 in the personal category and 2 in the career category. The current survey has 3 personal questions and 9 career questions. Each question has one answer.
 
-This output should show status (success, invalid), the percentage completed by category key and the answers given so far. 
+This output should show status (success, invalid), the answers given so far and the percentage completed by category key.
+
+The mock data is assembled in `survey.result.ts` with only two categories, but in future there may be many more categories and output should track progress as a  % within each category, including those the candidate has not begun yet.
 
 The API endpoint `/survey/results` would be called by a frontend application with a payload containing the `surveyId`. The `userId` may come from a JWT token; However, we have hardcoded these values for temporary testing purposes.
 
 Your task is only to:
 
 1. Implement the calcPercentage() method in the `CompletionRow` service class (src/comnpletion.row.ts)
-2. Run `npm run test` to see if the second test now passes.
-3. Refactor the code in `renderResults()` (`survey.controller.ts`) with a SurveyService class (`survey.service.ts`) class returning a `Details` object (currently defined as an interface in completions.row.ts)  with improvements to better support more question categories in future.
-4. Run `npm run test` again to see if both tests still pass.
+2. Run `npm run test` to see if the second test passes.
+3. Refactor the code in `renderResults()` (`survey.controller.ts`) with a SurveyService class (`survey.service.ts`) returning a `Details` object (currently defined as an interface in completions.row.ts)  with improvements to better support more question categories in future. However, the output within `progress` should still be in the format:
+```json
+{
+  "category_1": 50,
+  "category_2": 0
+}
+```
+4. Run `npm run test` again to check both tests still pass.
 
 
 ## Nest Notes

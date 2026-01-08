@@ -22,11 +22,11 @@ export class SurveyController {
       status: statusKey,
       surveyId,
       answers,
-      completions: {},
+      progress: {},
     };
 
     completions.forEach((completion: CompletionRow) => {
-      details.completions[completion.type] = completion;
+      details.progress[completion.type] = completion.calcPercentage();
     });
 
     return res.status(200).json(details);
