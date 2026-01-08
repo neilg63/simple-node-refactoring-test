@@ -16,9 +16,8 @@ Your task is only to:
 
 1. Implement the calcPercentage() method in the ```CompletionRow``` service class (src/comnpletion.row.ts)
 2. Run `npm run test` to see if the second test now passes.
-3. Refactor the code within ```renderResults()``` (src/survey.controller.ts)
+3. Refactor the code within ```renderResults()``` (src/survey.controller.ts) with a SurveyService class (`survey.service.ts`) class returning a `Details` object (currently defined as an interface in completions.row.ts)  with improvements to support more question categories in future.
 4. Run `npm run test` again to see if both tests still pass.
-5. Suggest improvements to the models to support more question categories in future.
 
 
 ## Nest Notes
