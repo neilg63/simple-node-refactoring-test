@@ -1,6 +1,6 @@
 # Simple Node Refactoring Test with Nest JS
 
-You will need an environment within Node JS 20+. 
+You will need access to an environment with Node JS 20+.
 The first step is to install the project via `npm install`. There are no external database dependencies. The default port is 3000, but you can override this in your local `.env` file or within `main.ts`.
  
 The controller in `src/survey.controller.ts` has one endpoint method, `renderResults()`, which is called when you navigate to `/survey/results` (e.g. http://localhost:3000/survey/results). This calls `survey.result.ts` and the related `answer.row.ts` and `completion.row.ts` model files. In normal *Nest* projects, these would be organised into separate modules. 
