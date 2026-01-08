@@ -1,11 +1,8 @@
 # Simple Node Refactoring Test with Nest JS
 
-The main ```src.survey.controller.ts``` file includes a controller that mimics a full-fat Laravel controller (but without any external framework dependencies). It should run in any php 8+ environment.
-
-
 The first step is to install the project via `npm install`. This should install a skeleton Nest Js 11 project that requires Node 20+, but has no other dependencies such as databases. The default port is 3000, but you can override this in your local `.env` file.
-
-The controller's ```renderResults()``` method is called when you navigate to `/survey/results` (e.g. http://localhost:3000/survey/results);
+ 
+The controller in `src/survey.controller.ts` has method, `renderResults()`, which is called when you navigate to `/survey/results` (e.g. http://localhost:3000/survey/results). This calls `src/survey.service.ts` and the related `completion.row.ts` model files. In normal Nest projects, these would be organised into separate modules. 
 
 All data sets and variable values are hard-coded for testing purposes. In production, these would come from request parameters and database queries.
 
@@ -17,9 +14,9 @@ The API endpoint `/survey/results` would be called by a frontend application wit
 
 Your task is only to:
 
-1. Refactor the code within ```renderResults()```
-2. Implement the calcPercentage() method in the ```CompletionRow``` service class
-3. Suggest improvements to support more question categories in future.
+1. Refactor the code within ```renderResults()``` (src/survey.controller.ts)
+2. Implement the calcPercentage() method in the ```CompletionRow``` service class (src/comnpletion.row.ts)
+3. Suggest improvements to the models to support more question categories in future.
 
 
 ## Nest Notes

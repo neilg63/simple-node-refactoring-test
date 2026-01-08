@@ -6,7 +6,9 @@ import { CompletionRow, Details } from './completion.row';
 @Controller('survey')
 export class SurveyController {
   @Get('results')
-  renderResults(@Res() res: express.Response) {
+  renderResults(@Res()
+    res: express.Response,
+  ) {
     const surveyId = 4; //. hardcoded for demo purposes would come from the URL Path
     const userId = 209; //. hardcoded for demo purposes. would come from auth context
     const answers = SurveyResult.getAnswers(surveyId, userId);
