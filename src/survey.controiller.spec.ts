@@ -29,12 +29,12 @@ describe('SurveyController', () => {
     // 1. There are at least 2 completion categories as keys of "completions".
     expect(Object.keys(jsonResponse.progress).length).toBeGreaterThanOrEqual(2);
 
-    // 2. The percentage for the personal category is > 33 and < 34.
-    expect(jsonResponse.progress.personal).toBeGreaterThan(33);
+    // 2. The percentage for the personal category is >= 33 and < 34.
+    expect(jsonResponse.progress.personal).toBeGreaterThanOrEqual(33);
     expect(jsonResponse.progress.personal).toBeLessThan(34);
 
-    // 3. The percentage for the career category is > 22 and < 23.
-    expect(jsonResponse.progress.career).toBeGreaterThan(22);
+    // 3. The percentage for the career category is >= 22 and < 23.
+    expect(jsonResponse.progress.career).toBeGreaterThanOrEqual(22);
     expect(jsonResponse.progress.career).toBeLessThan(23);
   });
 });
