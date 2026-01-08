@@ -10,13 +10,13 @@ A user, Jane Blogger, identified by $userId, is answering questions in a survey 
 
 This output should show status (success, invalid), the percentage completed by category key and the answers given so far. 
 
-The API endpoint `/survey/results` would be called by a frontend application with a payload containing the ```surveyId```. The ```userId``` may come from a JWT token; However, we have hardcoded these values for temporary testing purposes.
+The API endpoint `/survey/results` would be called by a frontend application with a payload containing the `surveyId`. The `userId` may come from a JWT token; However, we have hardcoded these values for temporary testing purposes.
 
 Your task is only to:
 
-1. Implement the calcPercentage() method in the ```CompletionRow``` service class (src/comnpletion.row.ts)
+1. Implement the calcPercentage() method in the `CompletionRow` service class (src/comnpletion.row.ts)
 2. Run `npm run test` to see if the second test now passes.
-3. Refactor the code within ```renderResults()``` (src/survey.controller.ts) with a SurveyService class (`survey.service.ts`) class returning a `Details` object (currently defined as an interface in completions.row.ts)  with improvements to support more question categories in future.
+3. Refactor the code in `renderResults()` (`survey.controller.ts`) with a SurveyService class (`survey.service.ts`) class returning a `Details` object (currently defined as an interface in completions.row.ts)  with improvements to better support more question categories in future.
 4. Run `npm run test` again to see if both tests still pass.
 
 
