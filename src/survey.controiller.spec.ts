@@ -26,7 +26,7 @@ describe('SurveyController', () => {
     // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
     const jsonResponse = res._getJSONData() as Details;
 
-    // 1. There are at least 2 completion categories as keys of "completions".
+    // 1. There are at least 2 completion categories as keys of "progress".
     expect(Object.keys(jsonResponse.progress).length).toBeGreaterThanOrEqual(2);
 
     // 2. The percentage for the personal category is >= 33 and < 34.
